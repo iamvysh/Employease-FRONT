@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+.custom-carousel {
+  height: 300px  !important
+}
+.carouselCaption{
+    font-family: 'Rock Salt', cursive;
+    font-weight: 500;
+    font-size: xx-large;
+    background-image:linear-gradient(to right,rgb(2, 54, 92),rgb(21, 215, 200));
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    
+}

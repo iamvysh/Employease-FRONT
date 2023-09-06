@@ -1,0 +1,12 @@
+.navbarItems:hover{
+
+    
+    scale: 1.1;
+
+}
+.bg-body-tertiary.navbar.navbar-expand-lg.navbar-light{
+    background-color: rgb(243, 231, 233) !important;
+    height: 100px;
+    
+  
+}
