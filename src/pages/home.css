@@ -1,6 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Rock+Salt&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Rock+Salt&display=swap');
 
 .aboutDiv{
     font-family: 'Michroma', sans-serif;
     
-}
+} */
+
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 10;
+    min-height: 100%;
+    min-width: 100%;
+  }
+  
+  .card {
+    width: 380px !important;
+  }
+  
+  .content {
+    position: fixed;
+    top: 170px;
+    left: 70%;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 100%;
+    padding: 85px;
+  }
+  
+  .myBtn {
+    width: 200px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10px 40px;
+    border: none;
+    background-color: #000;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .myBtn:hover {
+    background-color: white;
+    color: #000;
+  }
+  .ease{
+    color: rgb(65, 65, 235);
+    font-weight: 500;
+    font-size: x-large;
+  }
+  .about{
+    position: fixed;
+    top: 335px;
+    left: 1%;
+    right: 0;
+    bottom: 23px;
+    background-color: rgba(136, 25, 25, 0.5);
+    height:200px ;
+    width: 200px;
+    
+
+  }
+  

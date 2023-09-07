@@ -6,16 +6,19 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import "./navigation.css"
 import Image from "../image/logo.jpg"
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
 
-
+const navigate=useNavigate()
+const location=useLocation()
+const isHomePage=location.pathname==="/"
   return (
     <>
 
-<Navbar expand="lg" className="bg-body-tertiary "  style={{backgroundColor:"black"}}>
+<Navbar expand="lg" className="bg-body-tertiary " bg='transparent' fixed={isHomePage?'top':null}>
       <Container fluid>
-        <Navbar.Brand href="#"><img src={Image} alt="" /></Navbar.Brand>
+        <Navbar.Brand href="#"><img src={Image} alt=""  style={{filter: "contrast(500%)"}}/></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -23,9 +26,9 @@ const Navigation = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1" style={{color:"black"}} className='navbarItems'>Home</Nav.Link>
-            <Nav.Link href="#about" style={{color:"black"}} className='navbarItems'>About</Nav.Link>
-            <Nav.Link href="#action2" style={{color:"black"}}className='navbarItems'>Signin</Nav.Link>
+            <Nav.Link onClick={()=>navigate("/")}  className='navbarItems ' ><h5 className='nav_item'>Home</h5></Nav.Link>
+            <Nav.Link href="#about"  className='navbarItems '><h5 className='nav_item'>About</h5></Nav.Link>
+            <Nav.Link href="#action2" className='navbarItems '><h5 className='nav_item'>Signin</h5></Nav.Link>
             
           </Nav>
           <Form className="d-flex">

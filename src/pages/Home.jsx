@@ -1,27 +1,50 @@
 import React from 'react'
 import "./home.css"
+import Video from "../assets/bg.mp4"
+import Logo from "../image/logo.jpg"
 
 import Navigation from '../componets/Navigarion'
 import  Image from "../image/carouselimage.png"
 import Carousel from '../componets/carouseel/Carousel';
+import { Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 const Home = () => {
+  const navigate=useNavigate()
   return (
+
     <>
     <div className="mainDiv" style={{height:'100vh'}}>
 
      <Navigation/>     
-     <div className="corouselDiv" style={{height:'70%',backgroundColor:' rgb(243, 231, 233)',width:'100%'}}>
-    
-    {/* <h2>carouseel</h2> */}
-      <Carousel   />
+     <video autoPlay muted loop id="myVideo">
+        <source src={Video} type="video/mp4" />
+      </video>
+      <div className="content">
+        <div className="card w-25">
+          <img src={Logo} alt="logo"  style={{padding: "1px 65px"}}/>
+          
+          <div className="card-body" style={{ marginTop: "-60px" }}>
+            <h6 className="card-title">Unlesh The Potential With EmployEase</h6>
+            <p className="card-text">
+              Search and manage your jobs with <span className='ease'>ease.</span> free and open source job
+              portal application by <span className='ease'>EmployEase</span>
+            </p>
+            <div className="d-flex justify-content-between mt-5">
+              <p>
+                Not a user Register link to <Button className='success' onClick={()=>navigate("/commonregister")}>Register</Button>{" "}
+              </p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
 
-     </div>
-     <div className="aboutDiv" id='about' style={{height:'90%',backgroundColor:'aqua',width:'100%'}}>
 
-      <h1 className='aboutHead'>About  Us</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum doloribus nobis, at autem aut vero veniam praesentium pariatur repudiandae culpa ea, reprehenderit labore totam consequuntur quod maiores unde ex itaque.</p>
+      
 
-     </div>
+     
+
+      
     </div>
 
      
