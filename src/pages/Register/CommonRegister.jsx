@@ -68,6 +68,8 @@ const CommonRegister = () => {
                 data-aos="zoom-in-up"
                 data-aos-easing="linear"
                 data-aos-duration="700"
+                onClick={()=>navigate("/agencyregister")}
+
               >
                 <img
                   src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGNvbnN1bHRlbmN5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"

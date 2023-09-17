@@ -10,6 +10,8 @@ import Navigarion from './componets/Navigarion';
 import Home from './pages/Home';
 import CommonRegister from './pages/Register/CommonRegister';
 import EmployeeRegister from './pages/Register/EmployeeRegister';
+import AgencyRegister from './pages/Register/AgencyRegister';
+import Agenlogin from './pages/Login/Agentlogin/Agenlogin';
 
 function App() {
   
@@ -21,6 +23,8 @@ function App() {
     <Route path='/' element={<Home/>}  />
     <Route path='/commonregister' element={<CommonRegister/>}/>
     <Route path='/employeeregister' element={<EmployeeRegister/>}/>
+    <Route path="/agencyregister" element={<AgencyRegister/>} />
+    <Route path='/agencylogin'   element={<Agenlogin/>    } />
 
 
     </Routes>
