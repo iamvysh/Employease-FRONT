@@ -36,13 +36,13 @@ const Agenlogin = () => {
             toast.success(response.data.message, {
               position: toast.POSITION.TOP_RIGHT,
               autoClose:500,
-              // onClose: () => {
-              //   navigate('/');
-              // }
+              onClose: () => {
+                navigate('/agencyhome');
+              }
             })
 
 
-          }else if(response.status==201){
+          }else if(response.status==401){
             toast.warn(response.data.message, {
               position: toast.POSITION.TOP_RIGHT,
               autoClose: 2500,
@@ -52,7 +52,7 @@ const Agenlogin = () => {
       
             })
 
-          }else if(response.status==205){
+          }else if(response.status==404){
             toast.warn(response.data.message, {
               position: toast.POSITION.TOP_RIGHT,
               autoClose: 2500,
