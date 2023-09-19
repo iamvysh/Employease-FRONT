@@ -1,0 +1,44 @@
+.sidebar {
+   
+    /* background-color: #123eb6; */
+      width: 100%;
+      padding: 3% 0 0 0;
+
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     
+      height:100vh 
+    }
+
+    .sidebar a{
+        color: #fff;
+        margin-bottom: 10%;
+        
+        
+
+    }
+    .flex-column.nav :hover{
+        color: #000;
+    }
+    .sidebar a  :hover {
+
+        color: rgb(19, 19, 18) !important ;
+    }
+
+    .sidebar a.active{
+        text-decoration: underline;
+    }
+
+    .sidebar .nav-link span{
+        padding-left: 15px;
+        font-size: large;
+        
+        
+    }
+  
+   
+    @media (max-width:767px) {
+        .sidebar{
+            width: 80px;
+        }
+        
+    }
