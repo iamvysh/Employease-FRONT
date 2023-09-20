@@ -13,6 +13,8 @@ import EmployeeRegister from './pages/Register/EmployeeRegister';
 import AgencyRegister from './pages/Register/AgencyRegister';
 import Agenlogin from './pages/Login/Agentlogin/Agenlogin';
 import Agencyhome from './pages/AgencyHome.jsx/Agencyhome';
+import EmployeeRequest from './pages/EmployeeReqest/EmployeeRequest';
+import IndividualReqest from './pages/individualRequest/IndividualReqest';
 
 function App() {
   
@@ -27,6 +29,8 @@ function App() {
     <Route path="/agencyregister" element={<AgencyRegister/>} />
     <Route path='/agencylogin'   element={<Agenlogin/>    } />
     <Route path='/agencyhome' element={<Agencyhome/>} />
+     <Route path='/Employeerequest' element={<EmployeeRequest/>}/>
+     <Route path='/indvidualusers/:id' element={<IndividualReqest/>}/>
 
     </Routes>
    

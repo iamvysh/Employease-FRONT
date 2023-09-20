@@ -20,7 +20,7 @@ const Sidebar = () => {
           <FcHome />
           <span className="d-none d-md-inline">Dashboard</span>
         </Nav.Link>
-        <Nav.Link href="#link">
+        <Nav.Link href="/Employeerequest">
           <FcHighPriority />
           <span className="d-none d-md-inline" style={{display:"inline"}}> Employee Request</span>
         </Nav.Link>
@@ -35,7 +35,7 @@ const Sidebar = () => {
         <Nav.Link href="#link">
           <FcAdvertising />
 
-          <span className="d-none d-md-inline">User Request</span>
+          <span className="d-none d-md-inline">Job Request</span>
         </Nav.Link>
       </Nav>
     </div>
