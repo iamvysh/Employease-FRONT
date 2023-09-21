@@ -49,7 +49,7 @@ console.log("gutsoigoisdgoig",users);
 
         <div className="image_div">
 
-      <img src={user.imagefile} alt="Curved Image" style={{borderRadius:"50%",maxWidth:"160px",maxHeigh:"250px",padding:".4rem",width:"100%",height:"90%" }}/>
+      <img src={user.imagefile} alt="Curved Image" style={{borderRadius:"50%",maxWidth:"160px",maxHeigh:"250px",padding:".4rem",width:"100%",height:"90%" ,objectFit:"cover"}}/>
         </div>
         <div className="content_div" style={{display:"flex",flexDirection:"column",justifyContent:"space-evenly"}}>
       <h3>{user.name}</h3>
