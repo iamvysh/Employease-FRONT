@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Navigation from '../../componets/Navigarion'
 import Sidebar from '../../componets/sidebar/Sidebar'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
 import {
     MDBCol,
     MDBContainer,
@@ -30,6 +31,8 @@ import {
 
 const IndividualReqest = () => {
 
+   const navigate=useNavigate()
+
     const{id} =useParams()
 
     const [user,setuser]=useState([])
@@ -53,7 +56,86 @@ const IndividualReqest = () => {
             console.log(error)
         }
     }
-    console.log(id);
+    // console.log(id();
+
+    const handleApproveEmployee=async(id)=>{
+      try {
+
+        const response=await axios.put(`http://localhost:3000/agency/updateunapprovedemployee/${id}`)
+        if(response.status==200){
+          toast.success(response.data.message, {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose:500,
+            onClose: () => {
+              navigate('/agencyhome');
+            }
+          })
+        }else{
+          toast.warn("employee approve failed", {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 2500,
+            // onClose: () => {
+            //   navigate('/');
+            // }
+    
+          })
+        }
+        
+      } catch (error) {
+        toast.warn(error.response.data.message, {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 2500,
+          // onClose: () => {
+          //   navigate('/');
+          // }
+  
+        })
+        
+      }
+    }
+
+
+
+
+   const handleDeleteUnapprovedEmployee= async(id)=>{
+      try {
+
+        const response= await axios.delete(`http://localhost:3000/agency/deleteunapprovedemployee/${id}`)
+
+        console.log(response);
+
+        if(response.status==200){
+          toast.success(response.data.message, {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose:500,
+            onClose: () => {
+              navigate('/agencyhome');
+            }
+          })
+        }else{
+          toast.warn("employee deletion failed", {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 2500,
+            // onClose: () => {
+            //   navigate('/');
+            // }
+    
+          })
+        }
+        
+      } catch (error) {
+
+        toast.warn(error.response.data.message, {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 2500,
+          // onClose: () => {
+          //   navigate('/');
+          // }
+  
+        })
+        
+      }
+    }
 
     useEffect(()=>{
         GetIndividualEmployee(id)
@@ -62,6 +144,7 @@ const IndividualReqest = () => {
   return (
     <>
     <Navigation />
+    <ToastContainer />
 
     <div style={{height:'100vh',display:'flex',flexDirection:'row'}} className="main_div">
         <div  style={{width:'20%',position:'sticky',top:'0',left:'0',paddingTop:'3%',backgroundColor:"#425a71"}} className="sidebar_div">
@@ -91,8 +174,8 @@ const IndividualReqest = () => {
                               <p className="text-muted mb-1">{item.name}</p>
                               <p className="text-muted mb-4">{item.state}</p>
                               <div className="d-flex justify-content-center mb-2">
-                                <MDBBtn color='success'>Approve</MDBBtn>
-                                <MDBBtn className="ms-1" color='danger'>Reject</MDBBtn>
+                                <MDBBtn color='success' onClick={()=>handleApproveEmployee(item._id)}>Approve</MDBBtn>
+                                <MDBBtn className="ms-1" color='danger' onClick={()=>handleDeleteUnapprovedEmployee(item._id)}>Reject</MDBBtn>
                               </div>
                             </MDBCardBody>
                           </MDBCard>
