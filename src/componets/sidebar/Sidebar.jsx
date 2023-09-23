@@ -24,7 +24,7 @@ const Sidebar = () => {
           <FcHighPriority />
           <span className="d-none d-md-inline" style={{display:"inline"}}> Employee Request</span>
         </Nav.Link>
-        <Nav.Link href="#link">
+        <Nav.Link href="/approvedemployees">
           <FcApproval />
           <span className="d-none d-md-inline">Approved Employees</span>
         </Nav.Link>

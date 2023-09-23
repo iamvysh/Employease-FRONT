@@ -15,7 +15,7 @@ const Agencyhome = () => {
     {
       image:"https://images.unsplash.com/photo-1533378890784-b2a5b0a59d40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fHdvcmtlcnN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
       title:"Approved employees",
-      // link:"/"
+      link:"/approvedemployees"
 
     },
     {

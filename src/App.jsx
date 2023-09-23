@@ -15,6 +15,7 @@ import Agenlogin from './pages/Login/Agentlogin/Agenlogin';
 import Agencyhome from './pages/AgencyHome.jsx/Agencyhome';
 import EmployeeRequest from './pages/EmployeeReqest/EmployeeRequest';
 import IndividualReqest from './pages/individualRequest/IndividualReqest';
+import Approvedemployyes from './pages/ApprovedEmployees/Approvedemployyes';
 
 function App() {
   
@@ -31,6 +32,7 @@ function App() {
     <Route path='/agencyhome' element={<Agencyhome/>} />
      <Route path='/Employeerequest' element={<EmployeeRequest/>}/>
      <Route path='/indvidualusers/:id' element={<IndividualReqest/>}/>
+    <Route path='/approvedemployees' element={<Approvedemployyes/>}/>
 
     </Routes>
    
