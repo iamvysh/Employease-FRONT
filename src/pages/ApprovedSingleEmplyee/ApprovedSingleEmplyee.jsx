@@ -1,47 +1,43 @@
 import React, { useEffect, useState } from 'react'
-import Navigation from '../../componets/Navigarion'
-import Sidebar from '../../componets/sidebar/Sidebar'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
-import { ToastContainer, toast } from 'react-toastify';
 import {
-  MDBCol,
-  MDBContainer,
-  MDBRow,
-  MDBCard,
-  MDBCardText,
-  MDBCardBody,
-  MDBCardImage,
-  MDBBtn,
-  MDBModal,
-MDBModalDialog,
-MDBModalContent,
-MDBModalHeader,
-MDBModalTitle,
-MDBModalBody,
-MDBModalFooter,
-  MDBBreadcrumb,
-  MDBBreadcrumbItem,
-  MDBProgress,
-  MDBProgressBar,
-  MDBIcon,
-  MDBListGroup,
-  MDBListGroupItem
-} from 'mdb-react-ui-kit';
+    MDBCol,
+    MDBContainer,
+    MDBRow,
+    MDBCard,
+    MDBCardText,
+    MDBCardBody,
+    MDBCardImage,
+    MDBBtn,
+    MDBModal,
+  MDBModalDialog,
+  MDBModalContent,
+  MDBModalHeader,
+  MDBModalTitle,
+  MDBModalBody,
+  MDBModalFooter,
+    MDBBreadcrumb,
+    MDBBreadcrumbItem,
+    MDBProgress,
+    MDBProgressBar,
+    MDBIcon,
+    MDBListGroup,
+    MDBListGroupItem
+  } from 'mdb-react-ui-kit';
 
-const IndividualReqest = () => {
+  import Navigation from '../../componets/Navigarion'
+  import Sidebar from '../../componets/sidebar/Sidebar'
+  import { ToastContainer, toast } from 'react-toastify';
 
-   const navigate=useNavigate()
 
-    const{id} =useParams()
-
+const ApprovedSingleEmplyee = () => {
+    const navigate=useNavigate()
+    const {id}=useParams()
     const [user,setuser]=useState([])
-
     const [basicModal, setBasicModal] = useState(false);
 
     const toggleShow = () => setBasicModal(!basicModal);
-
-    
 
     const GetIndividualEmployee=async(id)=>{
         try {
@@ -56,22 +52,37 @@ const IndividualReqest = () => {
             console.log(error)
         }
     }
-    // console.log(id();
 
-    const handleApproveEmployee=async(id)=>{
-      try {
 
-        const response=await axios.put(`http://localhost:3000/agency/updateunapprovedemployee/${id}`)
-        if(response.status==200){
-          toast.success(response.data.message, {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose:500,
-            onClose: () => {
-              navigate('/agencyhome');
-            }
-          })
-        }else{
-          toast.warn("employee approve failed", {
+    const handleDeleteUnapprovedEmployee= async(id)=>{
+        try {
+  
+          const response= await axios.delete(`http://localhost:3000/agency/deleteunapprovedemployee/${id}`)
+  
+          console.log(response);
+  
+          if(response.status==200){
+            toast.success(response.data.message, {
+              position: toast.POSITION.TOP_RIGHT,
+              autoClose:500,
+              onClose: () => {
+                navigate('/agencyhome');
+              }
+            })
+          }else{
+            toast.warn("employee deletion failed", {
+              position: toast.POSITION.TOP_RIGHT,
+              autoClose: 2500,
+              // onClose: () => {
+              //   navigate('/');
+              // }
+      
+            })
+          }
+          
+        } catch (error) {
+  
+          toast.warn(error.response.data.message, {
             position: toast.POSITION.TOP_RIGHT,
             autoClose: 2500,
             // onClose: () => {
@@ -79,63 +90,9 @@ const IndividualReqest = () => {
             // }
     
           })
+          
         }
-        
-      } catch (error) {
-        toast.warn(error.response.data.message, {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 2500,
-          // onClose: () => {
-          //   navigate('/');
-          // }
-  
-        })
-        
       }
-    }
-
-
-
-
-   const handleDeleteUnapprovedEmployee= async(id)=>{
-      try {
-
-        const response= await axios.delete(`http://localhost:3000/agency/deleteunapprovedemployee/${id}`)
-
-        console.log(response);
-
-        if(response.status==200){
-          toast.success(response.data.message, {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose:500,
-            onClose: () => {
-              navigate('/agencyhome');
-            }
-          })
-        }else{
-          toast.warn("employee deletion failed", {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 2500,
-            // onClose: () => {
-            //   navigate('/');
-            // }
-    
-          })
-        }
-        
-      } catch (error) {
-
-        toast.warn(error.response.data.message, {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 2500,
-          // onClose: () => {
-          //   navigate('/');
-          // }
-  
-        })
-        
-      }
-    }
 
     useEffect(()=>{
         GetIndividualEmployee(id)
@@ -143,10 +100,10 @@ const IndividualReqest = () => {
     },[id])
   return (
     <>
-    <Navigation />
-    <ToastContainer />
+      <Navigation />
+      <ToastContainer />
 
-    <div style={{height:'100vh',display:'flex',flexDirection:'row'}} className="main_div">
+      <div style={{height:'100vh',display:'flex',flexDirection:'row'}} className="main_div">
         <div  style={{width:'20%',position:'sticky',top:'0',left:'0',paddingTop:'3%',backgroundColor:"#425a71"}} className="sidebar_div">
           <Sidebar />
 
@@ -174,8 +131,8 @@ const IndividualReqest = () => {
                               <p className="text-muted mb-1">{item.name}</p>
                               <p className="text-muted mb-4">{item.state}</p>
                               <div className="d-flex justify-content-center mb-2">
-                                <MDBBtn color='success' onClick={()=>handleApproveEmployee(item._id)}>Approve</MDBBtn>
-                                <MDBBtn className="ms-1" color='danger' onClick={()=>handleDeleteUnapprovedEmployee(item._id)}>Reject</MDBBtn>
+                                
+                                <MDBBtn className="ms-1" color='danger' onClick={()=>handleDeleteUnapprovedEmployee(item._id)}>Delete Employee</MDBBtn>
                               </div>
                             </MDBCardBody>
                           </MDBCard>
@@ -334,9 +291,8 @@ const IndividualReqest = () => {
 
           </div>
       </div>
-      
     </>
   )
 }
 
-export default IndividualReqest
+export default ApprovedSingleEmplyee

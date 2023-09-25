@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navigation from '../../componets/Navigarion';
 import Sidebar from '../../componets/sidebar/Sidebar';
 import { MDBBtn } from 'mdb-react-ui-kit';
 const ApprovedEmployees = () => {
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -58,7 +58,7 @@ const ApprovedEmployees = () => {
           <div className="items_div" style={{display:'flex',width:'100%',flexWrap:'wrap',height:"84%",overflow:'auto'}}>
           {searchQuery === '' ? (
             users.map((user) => (
-              <div key={user._id} className='card' style={{ height: "14rem", width: "5rem", margin: "2rem 2rem", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)", display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
+              <div key={user._id} className='card' style={{ height: "14rem", width: "5rem", margin: "2rem 2rem", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)", display: "flex", flexDirection: "row", justifyContent: "space-around" }}  onClick={()=>navigate(`/Approvedsingleemployee/${user._id}`)}>
                 <div className="image_div">
                   <img src={user.imagefile} alt="Curved Image" style={{ borderRadius: "50%", maxWidth: "160px", maxHeight: "250px", padding: ".4rem", width: "100%", height: "90%", objectFit: "cover" }} />
                 </div>
@@ -71,7 +71,7 @@ const ApprovedEmployees = () => {
             ))
           ) : (
             filteredUsers.map((user) => (
-              <div key={user._id} className='card' style={{ height: "14rem", width: "5rem", margin: "2rem 2rem", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)", display: "flex", flexDirection: "row", justifyContent: "space-around" }}>
+              <div key={user._id} className='card' style={{ height: "14rem", width: "5rem", margin: "2rem 2rem", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)", display: "flex", flexDirection: "row", justifyContent: "space-around" }}  onClick={()=>navigate(`/Approvedsingleemployee/${user._id}`)}>
                 <div className="image_div">
                   <img src={user.imagefile} alt="Curved Image" style={{ borderRadius: "50%", maxWidth: "160px", maxHeight: "250px", padding: ".4rem", width: "100%", height: "90%", objectFit: "cover" }} />
                 </div>

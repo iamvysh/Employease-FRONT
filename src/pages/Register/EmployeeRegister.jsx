@@ -339,9 +339,17 @@ const EmployeeRegister = () => {
                 </MDBCol>
               </MDBRow>
 
-              <MDBBtn className="mb-4" size="lg" onClick={handleRegister}>
+              <div style={{display:"flex",justifyContent:"center"}}>
+
+              <MDBBtn className="mb-4" size="lg" style={{width:"40%"}} onClick={handleRegister}>
                 Register
               </MDBBtn>
+              </div>
+              <div className="text-center">
+  <p>Already a member? <a  onClick={()=>navigate("/employeelogin")} style={{cursor:"pointer",color:"red",fontSize:"1rem"}}>Login</a></p>
+  
+</div>
+
             </MDBCardBody>
             {/* </MDBCard> */}
           </MDBRow>
