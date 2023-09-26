@@ -113,7 +113,7 @@ const CommonRegister = () => {
                   fluid
                   className="w-100"
                 />
-                <a href="#!">
+                <a href="/userregistration">
                   <div
                     className="mask"
                     style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
