@@ -13,10 +13,11 @@ const Navigation = () => {
 const navigate=useNavigate()
 const location=useLocation()
 const isHomePage=location.pathname==="/"
+const isemployee=location.pathname==="/employeemain"
   return (
     <>
 
-<Navbar expand="lg" className="bg-body-tertiary " bg='transparent' fixed={isHomePage?'top':null}>
+<Navbar expand="lg" className="bg-body-tertiary " bg='transparent' fixed={isHomePage||isemployee?'top':null}>
       <Container fluid>
         <Navbar.Brand href="#"><img src={Image} alt=""  style={{filter: "contrast(500%)"}}/></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -31,7 +32,7 @@ const isHomePage=location.pathname==="/"
             <Nav.Link href="#action2" className='navbarItems '><h5 className='nav_item'>Signin</h5></Nav.Link>
             
           </Nav>
-          <Form className="d-flex">
+          {/* <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
@@ -39,7 +40,7 @@ const isHomePage=location.pathname==="/"
               aria-label="Search"
             />
             <Button variant="outline-success">Search</Button>
-          </Form>
+          </Form> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

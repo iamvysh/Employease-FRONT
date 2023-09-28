@@ -120,21 +120,22 @@ const ApprovedSingleEmplyee = () => {
               
                       <MDBRow>
                         <MDBCol lg="4">
-                          <MDBCard className="mb-4">
-                            <MDBCardBody className="text-center">
-                              <MDBCardImage
+                          <MDBCard className="mb-4" style={{backgroundColor:"#EEEEEE",boxShadow:"none"}}>
+                            <MDBCardBody className="text-center d-flex align-items-end  justify-content-center
+" style={{backgroundImage:`url(${item.imagefile})`,backgroundSize:"contain",backgroundRepeat: "no-repeat",backgroundPosition:"center",borderRadius:".5rem",height:"12rem"}}>
+                              {/* <MDBCardImage
                                 src={item.imagefile}
                                 alt="avatar"
-                                className="rounded-circle"
-                                style={{ width: '200px' }}
-                                fluid />
-                              <p className="text-muted mb-1">{item.name}</p>
-                              <p className="text-muted mb-4">{item.state}</p>
-                              <div className="d-flex justify-content-center mb-2">
+                                // className="rounded-circle"
+                                style={{ width: '200px' ,borderRadius:".5rem"}}
+                                fluid /> */}
+                              {/* <p className=" mb-1" style={{color:"white",fontWeight:"bolder"}}>{item.name}</p>
+                              <p className=" mb-4">{item.state}</p> */}
+                            </MDBCardBody>
+                              <div className="d-flex justify-content-center mb-2  " >
                                 
                                 <MDBBtn className="ms-1" color='danger' onClick={()=>handleDeleteUnapprovedEmployee(item._id)}>Delete Employee</MDBBtn>
                               </div>
-                            </MDBCardBody>
                           </MDBCard>
               
                           

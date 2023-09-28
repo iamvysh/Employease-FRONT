@@ -60,7 +60,7 @@ const ApprovedEmployees = () => {
             users.map((user) => (
               <div key={user._id} className='card' style={{ height: "14rem", width: "5rem", margin: "2rem 2rem", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)", display: "flex", flexDirection: "row", justifyContent: "space-around" }}  onClick={()=>navigate(`/Approvedsingleemployee/${user._id}`)}>
                 <div className="image_div">
-                  <img src={user.imagefile} alt="Curved Image" style={{ borderRadius: "50%", maxWidth: "160px", maxHeight: "250px", padding: ".4rem", width: "100%", height: "90%", objectFit: "cover" }} />
+                  <img src={user.imagefile} alt="Curved Image" style={{ borderRadius: "8%", maxWidth: "160px", maxHeight: "250px", padding: ".4rem", width: "100%", height: "90%", objectFit: "cover" }} />
                 </div>
                 <div className="content_div" style={{ display: "flex", flexDirection: "column", justifyContent: "space-evenly" }}>
                   <h3>{user.name}</h3>

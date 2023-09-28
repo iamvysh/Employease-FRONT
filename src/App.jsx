@@ -19,6 +19,8 @@ import Approvedemployyes from './pages/ApprovedEmployees/Approvedemployyes';
 import ApprovedSingleEmplyee from './pages/ApprovedSingleEmplyee/ApprovedSingleEmplyee';
 import Employeelogin from './pages/Login/Employeelogin/Employeelogin';
 import Userregistration from './pages/Register/Userregistration';
+import Userlogin from './pages/Login/UserLogin/Userlogin';
+import Employeemain from './pages/EmployyeMain/Employeemain';
 
 function App() {
   
@@ -39,6 +41,8 @@ function App() {
     <Route path='/Approvedsingleemployee/:id' element={<ApprovedSingleEmplyee/>}/>
     <Route path="/employeelogin" element={<Employeelogin/>}/>
     <Route path='/userregistration' element={<Userregistration/>}/>
+    <Route path='/userlogin'  element={<Userlogin/>}/>
+    <Route path='/employeemain' element={<Employeemain/>}/>
     </Routes>
    
     </>

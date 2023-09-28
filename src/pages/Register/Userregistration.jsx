@@ -13,11 +13,14 @@ import {
 from 'mdb-react-ui-kit';
 import GoogleButton from 'react-google-button'
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+
 const Userregistration = () => {
 
 
 
-
+  const navigate=useNavigate()
   const nameRef=useRef(null)
   const emailRef=useRef(null)
   const phonrnumberRef=useRef(null)
@@ -27,9 +30,9 @@ const Userregistration = () => {
 
 
     const handlelogin=async()=>{
-        console.log('yyy');
+        
         try{
-            console.log('tttttt');
+            
             const data = await signInWithPopup(auth, provider);
       const credential = GoogleAuthProvider.credentialFromResult(data);
       const user = data.user;
@@ -43,17 +46,44 @@ const Userregistration = () => {
                     const response=await axios.post("http://localhost:3000/user/googleregister",user)
 
                     if(response.status==201){
-                      alert ("user registration is successful")
+                      toast.success(response.data.message, {
+                        position: toast.POSITION.TOP_RIGHT,
+                        autoClose:500,
+                        onClose: () => {
+                          navigate('/userlogin');
+                        }
+                      })
                     }else{
-                      alert("user registration failed")
+                      toast.warn("user already registered,please login", {
+                        position: toast.POSITION.TOP_RIGHT,
+                        autoClose: 2500,
+                        // onClose: () => {
+                        //   navigate('/');
+                        // }
+                
+                      })
                     }
                     
                   } catch (error) {
-                    alert(error)
+                    toast.warn(error.response.data.message, {
+                      position: toast.POSITION.TOP_RIGHT,
+                      autoClose: 2500,
+                      // onClose: () => {
+                      //   navigate('/');
+                      // }
+              
+                    })
                   }
       
         }catch(err){
-            console.log(err);
+          toast.warn(err.response.data.message, {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 2500,
+            // onClose: () => {
+            //   navigate('/');
+            // }
+    
+          })
         }
     }
 
@@ -66,6 +96,8 @@ const Userregistration = () => {
 
 
 const handleRegistratioan=async()=>{
+
+  
 
   const name=nameRef.current.value
   const email=emailRef.current.value
@@ -81,20 +113,41 @@ const handleRegistratioan=async()=>{
     const response= await axios.post("http://localhost:3000/user/register",Data)
 
     if(response.status==200){
-     return  alert("user registered suceesfully")
+     return   toast.success(response.data.message, {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose:500,
+      onClose: () => {
+        navigate('/userlogin');
+      }
+    })
     }
     if(response.status==205){
-      alert("user already registered")
-    }
+      toast.warn("user registration failed", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 2500,
+        // onClose: () => {
+        //   navigate('/');
+        // }
+
+      })    }
     
   } catch (error) {
-    alert(error)
+    toast.warn(error.response.data.message, {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 2500,
+      // onClose: () => {
+      //   navigate('/');
+      // }
+
+    })
   }
 }
   return (
     <>
      
      <Navigation/>
+     <ToastContainer />
+
 
      {/* <button onClick={()=>handlelogin()}>fshj</button> */}
 
@@ -102,7 +155,7 @@ const handleRegistratioan=async()=>{
 
      {/* <MDBBtn onClick={handlelogin}>login</MDBBtn>  */}
 
-     <MDBContainer className="p-3  d-flex justify-content-center align-items-center flex-column w-50" style={{marginTop:"12rem"}}>
+     <MDBContainer className="p-3  d-flex justify-content-center align-items-center flex-column w-50" style={{marginTop:"6rem"}}>
       <h3 className="fw-bold mb-4 pb-2 pb-md-0 mb-md-5 text-center  ">
                 Register - User
               </h3>
@@ -119,12 +172,14 @@ const handleRegistratioan=async()=>{
 <MDBBtn className="" style={{width:"13rem"}}  onClick={handleRegistratioan}>Register</MDBBtn>
 <p style={{marginBottom:"0px"}}>------or------</p>
 <GoogleButton
+  label='Sign up with Google'
+
   type="light" // can be light or dark
   onClick={handlelogin}
 />
 
 <div className="text-center">
-  <p>Not a member? <a  onClick={()=>navigate("/agencyregister")} style={{cursor:"pointer",color:"red",fontSize:"1rem"}}>Log In</a></p>
+  <p>Already a member? <a  onClick={()=>navigate("/userlogin")} style={{cursor:"pointer",color:"red",fontSize:"1rem"}}>Log In</a></p>
   
 </div>
 
