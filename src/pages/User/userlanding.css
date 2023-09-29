@@ -1,0 +1,26 @@
+#image_division{
+    width: 100%;
+    height: 100vh;
+    background-image: url("../../image/bannerBg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+#display_main_div{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index:0;
+}
+#content{
+    max-width: 72rem; /* Assuming 1 rem = 1ch (character width) */
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff; 
+
+    z-index: 1000;
+}

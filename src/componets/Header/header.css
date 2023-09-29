@@ -1,0 +1,45 @@
+#Header_main_div{
+    width: 100%;
+    color: #fff;
+    padding-top: 2.5rem; /* Adjust the padding as needed */
+    padding-bottom: 2.5rem; /* Adjust the padding as needed */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #3b82f6; 
+}
+.header_heading{
+    font-size: 1.5rem; /* Equivalent to "text-2xl" */
+  font-weight: bold; /* Equivalent to "font-bold" */
+  text-transform: uppercase;
+}
+.header_lists{
+    display: flex;
+  gap: 1rem; /* Equivalent to "gap-6" */
+  font-size: 0.875rem; /* Equivalent to "text-sm" */
+  text-transform: uppercase; /* Equivalent to "uppercase" */
+  font-weight: 600; 
+}
+
+.header_lists ul{
+    list-style: none;
+}
+.header_buttton{
+    background-color: #38a169; 
+  padding: 0.25rem 1rem; 
+  border-radius: 0.75rem; 
+  font-size: 1rem; 
+  text-transform: uppercase; 
+  font-weight: 600; 
+  color: #fff; 
+  border: none; 
+  cursor: pointer; 
+  transition: all 0.5s linear; /* Remove quotes */
+  z-index: 110000;
+}
+
+
+.header_buttton:hover{
+    transform: scale(1.2);
+
+}

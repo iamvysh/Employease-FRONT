@@ -39,9 +39,9 @@ const Userlogin = () => {
              return   toast.success(response.data.message, {
               position: toast.POSITION.TOP_RIGHT,
               autoClose:500,
-            //   onClose: () => {
-            //     navigate('/userlogin');
-            //   }
+              onClose: () => {
+                navigate('/usermain');
+              }
             })
             }
             if(response.status==203){
@@ -88,9 +88,9 @@ const Userlogin = () => {
           toast.success(response.data.message, {
             position: toast.POSITION.TOP_RIGHT,
             autoClose:500,
-            // onClose: () => {
-            //   navigate('/userlogin');
-            // }
+            onClose: () => {
+              navigate('/usermain');
+            }
           })
         }else{
           toast.warn("user not registered,please register", {
