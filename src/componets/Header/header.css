@@ -1,12 +1,15 @@
 #Header_main_div{
     width: 100%;
     color: #fff;
-    padding-top: 2.5rem; /* Adjust the padding as needed */
-    padding-bottom: 2.5rem; /* Adjust the padding as needed */
+    /* padding-top: 2.5rem; /* Adjust the padding as needed */
+    /* padding-bottom: 2.5rem; */ 
+    padding: 1rem 4rem 2.5rem 5rem ; /* Adjust the padding as needed */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #3b82f6; 
+
+
+    /* border-bottom: 1px solid #3b82f6;  */
 }
 .header_heading{
     font-size: 1.5rem; /* Equivalent to "text-2xl" */
@@ -35,7 +38,7 @@
   border: none; 
   cursor: pointer; 
   transition: all 0.5s linear; /* Remove quotes */
-  z-index: 110000;
+  /* z-index: 110000; */
 }
 
 

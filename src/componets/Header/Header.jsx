@@ -16,20 +16,20 @@ const Header = () => {
 
         <div  style={{height:"6rem"}}>
         {/* <h1 className="header_heading">EmployEase</h1> */} 
-        <img src={Logo}   alt="" />
+        <img style={{width:'10rem',height:'5rem'}} src={Logo}   alt="" />
         </div>
          
-        <div>
+        <div style={{zIndex:"3"}}>
         <ul className="header_lists">
-          <li style={{listStyle:"none"}}>Home</li>
-          <li style={{listStyle:"none"}}>About</li>
-          <li style={{listStyle:"none"}}>Services</li>
+          <a style={{listStyle:"none"}}  >Home</a>
+          <a style={{listStyle:"none"}}  href='#about'>About</a>
+          <a >Services</a>
         </ul>
       </div>
 
 
-      <div>
-        <button className="header_buttton" onClick={()=>handleShow()}>
+      <div style={{zIndex:"2"}}>
+        <button className="header_buttton" onClick={()=>handleShow()} style={{zIndex:"1000000"}}>
           Contact Us 
         </button>
       </div>

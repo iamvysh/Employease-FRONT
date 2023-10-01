@@ -34,6 +34,8 @@ const Userlogin = () => {
         try {
 
             const response= await axios.post("http://localhost:3000/user/userlogin",Data)
+            console.log(response);
+            localStorage.setItem("userid",response.data.Data)
 
             if(response.status==200){
              return   toast.success(response.data.message, {
@@ -48,9 +50,9 @@ const Userlogin = () => {
               toast.warn(response.data.message, {
                 position: toast.POSITION.TOP_RIGHT,
                 autoClose: 2500,
-                // onClose: () => {
-                //   navigate('/');
-                // }
+                onClose: () => {
+                  navigate('/');
+                }
         
               })    }
 
@@ -83,7 +85,8 @@ const Userlogin = () => {
       try {
 
         const response=await axios.post("http://localhost:3000/user/googleauthlogin",user)
-
+        console.log(response);
+        localStorage.setItem("userid",response.data.Data)
         if(response.status==200){
           toast.success(response.data.message, {
             position: toast.POSITION.TOP_RIGHT,

@@ -22,6 +22,8 @@ import Userregistration from './pages/Register/Userregistration';
 import Userlogin from './pages/Login/UserLogin/Userlogin';
 import Employeemain from './pages/EmployyeMain/Employeemain';
 import Userlanding from './pages/User/Userlanding';
+import Employeeprofile from './pages/EmployeeProfile/Employeeprofile';
+import JobPost from './pages/User/JobPost';
 
 function App() {
   
@@ -45,6 +47,8 @@ function App() {
     <Route path='/userlogin'  element={<Userlogin/>}/>
     <Route path='/employeemain' element={<Employeemain/>}/>
     <Route path='/usermain' element={<Userlanding/>}/>
+    <Route path='/employeeprofile'element={<Employeeprofile/>}/>
+    <Route path='/jobpost' element={<JobPost/>} />
     </Routes>
    
     </>

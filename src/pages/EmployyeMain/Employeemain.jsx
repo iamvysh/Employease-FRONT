@@ -2,9 +2,15 @@ import React from "react";
 import Navigation from "../../componets/Navigarion";
 import "./Emploeemail.css"
 import Typewriter from "typewriter-effect";
+import { useNavigate } from "react-router-dom";
 
 const Employeemain = () => {
 
+
+  const naviagate=useNavigate()
+  const userdata=localStorage.getItem("data")
+    const storedData = JSON.parse(userdata)
+    console.log(storedData);
   
   return (
     <>
@@ -27,7 +33,7 @@ const Employeemain = () => {
             autoStart:true,
             loop:true,
             delay:50,
-            strings:["HEY  EMPLOYEE!!!"," WELCOME TO EMPLOYEASE"]
+            strings:[`HEY  ${storedData.name}!!!`," WELCOME TO EMPLOYEASE"]
           }}
           
           />
@@ -63,6 +69,7 @@ const Employeemain = () => {
             boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
             transition:"all .5s linear"
           }}
+          onClick={()=>naviagate("/employeeprofile")}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -28,8 +28,12 @@ const Employeelogin = () => {
 
     try {
       const response=await axios.post("http://localhost:3000/employee/login",Data)
-
+      // console.log(response);
       if(response.status==200){
+        console.log(response.data.Data);
+        const dataString = JSON.stringify(response.data.Data);
+
+        localStorage.setItem("data",dataString)
         toast.success(response.data.message, {
           position: toast.POSITION.TOP_RIGHT,
           autoClose:500,
