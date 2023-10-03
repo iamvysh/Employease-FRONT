@@ -24,6 +24,7 @@ import Employeemain from './pages/EmployyeMain/Employeemain';
 import Userlanding from './pages/User/Userlanding';
 import Employeeprofile from './pages/EmployeeProfile/Employeeprofile';
 import JobPost from './pages/User/JobPost';
+import Jobrequest from './pages/Jobrequest/Jobrequest';
 
 function App() {
   
@@ -49,6 +50,7 @@ function App() {
     <Route path='/usermain' element={<Userlanding/>}/>
     <Route path='/employeeprofile'element={<Employeeprofile/>}/>
     <Route path='/jobpost' element={<JobPost/>} />
+    <Route path='/jobrequest' element={<Jobrequest/>}/>
     </Routes>
    
     </>

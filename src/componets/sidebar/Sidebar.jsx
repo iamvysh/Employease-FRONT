@@ -32,7 +32,7 @@ const Sidebar = () => {
           <FcBusinessman />
           <span className="d-none d-md-inline">Users</span>
         </Nav.Link>
-        <Nav.Link href="#link">
+        <Nav.Link href="/jobrequest">
           <FcAdvertising />
 
           <span className="d-none d-md-inline">Job Request</span>
