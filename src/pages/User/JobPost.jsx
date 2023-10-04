@@ -3,6 +3,8 @@ import "./userlanding.css";
 import Header from "../../componets/Header/Header";
 import { MDBInput, MDBCheckbox, MDBBtn,MDBTextArea } from "mdb-react-ui-kit";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const JobPost = () => {
   const formRef=useRef(null)
@@ -41,6 +43,26 @@ const JobPost = () => {
     try {
          const response=await axios.post("http://localhost:3000/user/postjob",Data)
           console.log(response);
+          if(response.status==200){
+            toast.success(response.data.message, {
+              position: toast.POSITION.TOP_RIGHT,
+              autoClose:500,
+              // onClose: () => {
+              //   navigate('/agencyhome');
+              // }
+            })
+
+
+          }else{
+            toast.warn(err.response.data.message, {
+              position: toast.POSITION.TOP_RIGHT,
+              autoClose: 2500,
+              // onClose: () => {
+              //   navigate('/');
+              // }
+      
+            })
+          }
       
     } catch (error) {
       console.log(error);
@@ -49,6 +71,8 @@ const JobPost = () => {
   }
   return (
     <>
+          <ToastContainer />
+
       <div id="image_division">
         <div id="content">
           <Header />

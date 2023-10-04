@@ -25,6 +25,9 @@ import Userlanding from './pages/User/Userlanding';
 import Employeeprofile from './pages/EmployeeProfile/Employeeprofile';
 import JobPost from './pages/User/JobPost';
 import Jobrequest from './pages/Jobrequest/Jobrequest';
+import IndividualJobrequstdetils from './pages/Jobrequest/IndividualJobrequstdetils';
+import SimilerEmplyoyee from './pages/Jobrequest/SimilerEmplyoyee';
+
 
 function App() {
   
@@ -51,6 +54,8 @@ function App() {
     <Route path='/employeeprofile'element={<Employeeprofile/>}/>
     <Route path='/jobpost' element={<JobPost/>} />
     <Route path='/jobrequest' element={<Jobrequest/>}/>
+    <Route path='/jobrequest/:id' element={<IndividualJobrequstdetils/>}/>
+    <Route path='/simileremployees/:id' element={<SimilerEmplyoyee/>} />
     </Routes>
    
     </>

@@ -13,10 +13,14 @@ import {
     MDBBtn,
   } from "mdb-react-ui-kit";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const Jobrequest = () => {
 
+
+    const navigate=useNavigate()
     const [users,setUsers]=useState([])
     const [pageNumber, setPageNumber] = useState(0);
     const [numberOfPages, setNumberOfPages] = useState(0);
@@ -148,7 +152,7 @@ const Jobrequest = () => {
 
                     
                   <div className="d-flex flex-column mt-5">
-                    <MDBBtn  color="primary" size="sm">
+                    <MDBBtn   onClick={()=>navigate(`/jobrequest/${item._id}`)} color="primary" size="sm">
                      View Details
                     </MDBBtn>
                    
