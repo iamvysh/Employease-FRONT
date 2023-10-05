@@ -25,11 +25,13 @@ MDBModalFooter,
   MDBListGroup,
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const IndividualJobrequstdetils = () => {
+  
 
+  const navigate=useNavigate()
   const [user,setUser]=useState([])
 
   const {id}=useParams()
@@ -102,6 +104,15 @@ const IndividualJobrequstdetils = () => {
                     </MDBCol>
                     <MDBCol sm="9" style={{display:"flex",justifyContent:"center"}}>
                       <MDBCardText className="text-muted ">{item.jobtitle}</MDBCardText>
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText> Job category</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9" style={{display:"flex",justifyContent:"center"}}>
+                      <MDBCardText className="text-muted ">{item.category}</MDBCardText>
                     </MDBCol>
                   </MDBRow>
                   <hr />
@@ -180,16 +191,16 @@ const IndividualJobrequstdetils = () => {
                     </MDBCol>
                   </MDBRow>
                   <hr />
-                    <MDBRow>
-                      <MDBCol sm="3" >
-                        <MDBCardText>Jobdescription</MDBCardText>
-                      </MDBCol>
-                      <MDBCol sm="9" style={{display:"flex",justifyContent:"center"}}>
-                        <MDBCardText className="text-muted  ">{item.jobdescription}</MDBCardText>
-                      </MDBCol>
-                    </MDBRow>
-
-                    <hr />
+                   <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Show Suitable employees</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9" style={{display:"flex",justifyContent:"center"}}  >
+                      <MDBBtn size='sm' onClick={()=>navigate(`/simileremployees/${item._id}`)} >Click Here</MDBBtn>
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                    
                   
                 </MDBCardBody>
               </MDBCard>

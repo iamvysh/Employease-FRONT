@@ -384,7 +384,7 @@ const EmployeeRegister = () => {
       <option value="Driver">Driver</option>
       <option value="Catering">Catering</option>
       <option value="Plumbing">Plumbing</option>
-      <option value="Wiring">Wiring</option>
+      <option value="Electriction">Electriction</option>
       <option value="Others">Others</option>
     </Form.Select>
                 </MDBCol>

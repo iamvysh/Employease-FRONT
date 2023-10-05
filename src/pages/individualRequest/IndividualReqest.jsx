@@ -261,10 +261,10 @@ const IndividualReqest = () => {
                               <hr />
                               <MDBRow>
                                 <MDBCol sm="3">
-                                  <MDBCardText>Skills</MDBCardText>
+                                  <MDBCardText>Category</MDBCardText>
                                 </MDBCol>
                                 <MDBCol sm="9">
-                                  <MDBCardText className="text-muted">{item.skills}</MDBCardText>
+                                  <MDBCardText className="text-muted">{item.category}</MDBCardText>
                                 </MDBCol>
                               </MDBRow>
                               <hr />
