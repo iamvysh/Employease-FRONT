@@ -10,7 +10,7 @@ const SimilerEmplyoyee = () => {
     const {id}=useParams()
     const [users,setusers]=useState([])
 
-    console.log(id,"******id********");
+    // console.log(id,"******id********");
 
     const getUsers=async()=>{
       try {
@@ -30,7 +30,23 @@ const SimilerEmplyoyee = () => {
       getUsers()
     },[id])
 
-console.log(users);
+// console.log(users);
+
+const data = users.map(user => user._id);
+// console.log(userIds);
+
+
+const SendJobDetailstoEmployees=async()=>{
+  try {
+
+    const response=await axios.put("http://localhost:3000/agency/sendjobrequesttoemployees",{data,id})
+      
+
+
+  } catch (error) {
+    
+  }
+}
 
   return (
     <>
@@ -61,7 +77,7 @@ console.log(users);
           <div className="button_div" style={{width:"20%",height:"90vh",display:"flex",justifyContent:"center",alignItems:"center"}}>
 
                 <div>
-                <MDBBtn size='lg' outline rounded color='success' >Sent Request to  all</MDBBtn>
+                <MDBBtn  onClick={SendJobDetailstoEmployees} size='lg' outline rounded color='success' >Sent Request to  all</MDBBtn>
 
                 </div>
 

@@ -11,7 +11,7 @@ const Employeemain = () => {
   const userdata=localStorage.getItem("data")
     const storedData = JSON.parse(userdata)
     console.log(storedData);
-  
+    
   return (
     <>
       <Navigation  />
@@ -136,6 +136,7 @@ const Employeemain = () => {
             transition:"all .5s linear"
 
           }}
+          onClick={()=>naviagate(`/jobdetails/${storedData._id}`)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
