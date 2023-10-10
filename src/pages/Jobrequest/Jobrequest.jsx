@@ -14,6 +14,8 @@ import {
   } from "mdb-react-ui-kit";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import ProgressBar from 'react-bootstrap/ProgressBar';
+
 
 
 
@@ -87,7 +89,8 @@ const Jobrequest = () => {
         <MDBCol md="12" xl="10">
             {/* <MDBCard className="shadow-0 border rounded-3 mt-5 mb-3" style={{ width: "55rem", important: "true" }}> */}
             <div className='shadow-0 border rounded-3 mt-4 mb-2' >
-            <MDBCardBody style={{boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}>
+            <MDBCardBody style={{boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)", background:
+      item.scheduledemployees.length >= item.numberofemployees ? 'linear-gradient(to bottom, #1aff1a,#b3ffb3 )' : null  ,}}>  
               <MDBRow>
                 <MDBCol md="12" lg="3" className="mb-4 mb-lg-0">
                   <MDBRipple

@@ -38,13 +38,28 @@ const IndividualJobrequstdetils = () => {
 
   // console.log("****id*****",id);
    
-
+const HandleApproveTheJob=async()=>{
+  try {
+    const response=await axios.put(`http://localhost:3000/agency/jobs/approvejob/${id}`)
+     if(response.status==200){
+      return alert("job approved succesfully")
+     }
+     if(response.status==203){
+      return alert("employees are not scheduled")
+     }
+     if (response.status==404){
+      return alert("no job found")
+     }
+  } catch (error) {
+    alert("internal server error ",error)
+  }
+}
   const getUserhostedJobById=async()=>{
     try {
       const response=await axios.get(`http://localhost:3000/agency/getuserbyid/${id}`)
 
       if(response.status==200){
-        // console.log(response.data.Data);
+        console.log(response.data.Data);
         setUser([response.data.Data])
       }
       
@@ -65,7 +80,7 @@ const IndividualJobrequstdetils = () => {
   },id)
 
 
-  console.log(user);
+  // console.log(user);
 
 
 
@@ -89,8 +104,8 @@ const IndividualJobrequstdetils = () => {
 {
     user.map((item)=>( 
 
-        <section style={{ backgroundColor: '#c7c1c1',width:"80%" }}>
-        <MDBContainer className="py-5"  >
+        <section style={{ backgroundColor: '#c7c1c1',width:"80%",height:"100vh" }}>
+        <MDBContainer className="py-3"  >
           
   
           <MDBRow >
@@ -104,6 +119,27 @@ const IndividualJobrequstdetils = () => {
                     </MDBCol>
                     <MDBCol sm="9" style={{display:"flex",justifyContent:"center"}}>
                       <MDBCardText className="text-muted ">{item.jobtitle}</MDBCardText>
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Starting Date</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9" style={{display:"flex",justifyContent:"center"}}>
+                      <MDBCardText className="text-muted ">
+                      {new Date(item.Date).toLocaleDateString('en-IN', { day: 'numeric', month: 'numeric', year: 'numeric' })}
+
+                        </MDBCardText>
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Number of Days</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9" style={{display:"flex",justifyContent:"center"}}>
+                      <MDBCardText className="text-muted ">{item.numberofdays}</MDBCardText>
                     </MDBCol>
                   </MDBRow>
                   <hr />
@@ -151,7 +187,7 @@ const IndividualJobrequstdetils = () => {
                       <MDBCardText>Email </MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9" style={{display:"flex",justifyContent:"center"}}>
-                      <MDBCardText className="text-muted">{item.userId.name}</MDBCardText>
+                      <MDBCardText className="text-muted">{item.userId.email}</MDBCardText>
                     </MDBCol>
                   </MDBRow>
                   <hr />
@@ -196,10 +232,20 @@ const IndividualJobrequstdetils = () => {
                       <MDBCardText>Show Suitable employees</MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9" style={{display:"flex",justifyContent:"center"}}  >
-                      <MDBBtn size='sm' onClick={()=>navigate(`/simileremployees/${item._id}`)} >Click Here</MDBBtn>
+                      <MDBBtn size='sm'  onClick={()=>navigate(`/simileremployees/${item._id}`)} >Click Here</MDBBtn>
                     </MDBCol>
                   </MDBRow>
                   <hr />
+                  <MDBRow className='mx-3'>
+                  <MDBCol sm="6" style={{display:"flex",justifyContent:"center"}}>
+<MDBBtn size='sm' color='success' onClick={HandleApproveTheJob}>Approve</MDBBtn>
+                    </MDBCol>
+                    <MDBCol sm="6" style={{display:"flex",justifyContent:"center"}}  >
+                      {/* <MDBCardText className="text-muted ">{item.numberofemployees}</MDBCardText> */}
+<MDBBtn size='sm' color='danger'>Reject</MDBBtn> 
+                    </MDBCol>
+
+                  </MDBRow>
                     
                   
                 </MDBCardBody>

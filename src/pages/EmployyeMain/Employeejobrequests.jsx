@@ -148,6 +148,29 @@ const handleDelete=async(job_id)=>{
                   <br />
                 </span>
               </div>
+
+              <div className="mt-1 mb-0 text-muted small">
+                <span>
+                {new Date(item.Date).toLocaleDateString('en-IN', { day: 'numeric', month: 'numeric', year: 'numeric' })}                  </span>
+                <span className="text-primary"> • </span>
+                <span>
+                  {item.numberofdays}  days
+                </span>
+                
+                <span>
+                  
+                  <br />
+                </span>
+              </div>
+
+
+
+
+
+
+
+
+
               <div className="mb-2 text-muted small">
                 <span>
                   {item.address}
