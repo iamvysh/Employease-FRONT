@@ -55,8 +55,9 @@ const handleApprove=async(job_id)=>{
     const response=await axios.put("http://localhost:3000/employee/approvejobrequest",Data)
 
     if (response.status==200) {
-     return alert("mone sett")
-      
+      alert("mone sett")
+            GetallNewJobs()
+
     }
 
     if(response.status==203){
