@@ -11,6 +11,11 @@ import {
   MDBIcon,
   MDBRipple,
   MDBBtn,
+  MDBTabs,
+  MDBTabsItem,
+  MDBTabsLink,
+  MDBTabsContent,
+  MDBTabsPane
 } from "mdb-react-ui-kit";
 import axios from 'axios';
 
@@ -18,7 +23,7 @@ const Employeejobrequests = () => {
 
   const {id}=useParams()
   const [jobs,setjobs]=useState([])
-
+  const [ApprovedJob,setApprovedJob]=useState([])
 
 // const Data={
 //   id:id
@@ -32,16 +37,27 @@ const GetallNewJobs=async()=>{
     console.log(error);
   }
 }
+
+const GetAllApprovedJob=async()=>{
+  try {
+    const response=await axios.get(`http://localhost:3000/employee/approvedjobrequest/${id}`)
+    setApprovedJob(response.data.Data.approvedRequest)
+  } catch (error) {
+    console.log(error);
+  }
+}
      
 useEffect(()=>{
   GetallNewJobs()
 },[id])
 
-
-
+useEffect(()=>{
+  GetAllApprovedJob()
+},[id])
+  console.log(ApprovedJob);
 
   // console.log("********id*******",id);
-console.log(jobs);
+// console.log(jobs);
 
 
 const handleApprove=async(job_id)=>{
@@ -87,17 +103,45 @@ const handleDelete=async(job_id)=>{
 
 }
 
+const [basicActive, setBasicActive] = useState('tab1');
 
+const handleBasicClick = (value) => {
+  if (value === basicActive) {
+    return;
+  }
+
+  setBasicActive(value);
+};
   return (
     <>
     <Navigation/>
-    <div className="main" style={{display:"flex",flexWrap:"wrap", width:"100%"}}>
       {/* <div className="jobcard" style={{height:"20rem",width:"20rem",backgroundColor:"aqua"}}> */}
+      <MDBTabs className='d-flex justify-content-center      w-100'>
+        <MDBTabsItem>
+          <MDBTabsLink onClick={() => handleBasicClick('tab1')} active={basicActive === 'tab1'} style={{color:"green"}}>
+            New Requests
+          </MDBTabsLink>
+        </MDBTabsItem>
+        <MDBTabsItem>
+          <MDBTabsLink onClick={() => handleBasicClick('tab2')} active={basicActive === 'tab2'} style={{color:"orange"}}>
+            Approved Requsts
+          </MDBTabsLink>
+        </MDBTabsItem>
+        <MDBTabsItem>
+          <MDBTabsLink onClick={() => handleBasicClick('tab3')} active={basicActive === 'tab3'} style={{color:"red"}}>
+            Completed Requests
+          </MDBTabsLink>
+        </MDBTabsItem>
+      </MDBTabs>
 
+      <MDBTabsContent>
+        <MDBTabsPane show={basicActive === 'tab1'}>
+
+        <div className="main" style={{display:"flex",flexWrap:"wrap", width:"100%"}}>
       <MDBContainer fluid>
 
 {jobs.map((item)=>( 
-    <MDBRow className="justify-content-center mb-0">
+  <MDBRow className="justify-content-center mb-0">
     <MDBCol md="12" xl="10">
         {/* <MDBCard className="shadow-0 border rounded-3 mt-5 mb-3" style={{ width: "55rem", important: "true" }}> */}
         <div className='shadow-0 border rounded-3 mt-4 mb-2' >
@@ -236,6 +280,147 @@ const handleDelete=async(job_id)=>{
 
       {/* </div> */}
     </div>
+
+
+        </MDBTabsPane>
+        <MDBTabsPane show={basicActive === 'tab2'}>
+        
+        
+        <div className="main" style={{display:"flex",flexWrap:"wrap", width:"100%"}}>
+      <MDBContainer fluid>
+
+{ApprovedJob.map((item)=>( 
+  <MDBRow className="justify-content-center mb-0">
+    <MDBCol md="12" xl="10">
+        {/* <MDBCard className="shadow-0 border rounded-3 mt-5 mb-3" style={{ width: "55rem", important: "true" }}> */}
+        <div className='shadow-0 border rounded-3 mt-4 mb-2' >
+        <MDBCardBody style={{boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"}}>
+          <MDBRow>
+            <MDBCol md="12" lg="3" className="mb-4 mb-lg-0">
+              <MDBRipple
+                rippleColor="light"
+                rippleTag="div"
+                className="bg-image rounded hover-zoom hover-overlay"
+              >
+                <MDBCardImage
+                  src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  fluid
+                  className="w-100"
+                />
+                <a href="#!">
+                  <div
+                    className="mask"
+                    style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
+                  ></div>
+                </a>
+              </MDBRipple>
+            </MDBCol>
+            <MDBCol md="6" style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
+              <h5 className='mt-1'>
+                {item.jobtitle}
+              </h5>
+              <div className="d-flex flex-row">
+                <div className="text-danger mb-1 me-2">
+                  {/* <MDBIcon fas icon="star" />
+                  <MDBIcon fas icon="star" />
+                  <MDBIcon fas icon="star" />
+                  <MDBIcon fas icon="star" /> */}
+                </div>
+                {/* <span>4</span> */}
+              </div>
+              <div className="mt-1 mb-0 text-muted small">
+                <span>
+                  {item.place} 
+                  </span>
+                <span className="text-primary"> • </span>
+                <span>
+                  {item.phonenumber} 
+                </span>
+                
+                <span>
+                  
+                  <br />
+                </span>
+              </div>
+
+              <div className="mt-1 mb-0 text-muted small">
+                <span>
+                {new Date(item.Date).toLocaleDateString('en-IN', { day: 'numeric', month: 'numeric', year: 'numeric' })}                  </span>
+                <span className="text-primary"> • </span>
+                <span>
+                  {item.numberofdays}  days
+                </span>
+                
+                <span>
+                  
+                  <br />
+                </span>
+              </div>
+
+
+
+
+
+
+
+
+
+              <div className="mb-2 text-muted small">
+                <span>
+                  {item.address}
+                </span>
+                
+                <span>
+                  
+                  <br />
+                </span>
+              </div>
+              <p className="text-truncate mb-4 mb-md-0">
+             {item.jobdescription} 
+              </p>
+            </MDBCol>
+            
+          </MDBRow>
+        </MDBCardBody>
+        </div>
+      {/* </MDBCard> */}
+    </MDBCol>
+  </MDBRow>
+))} 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ 
+ 
+</MDBContainer>
+
+
+      {/* </div> */}
+    </div>
+        
+        
+        
+        
+        
+        
+        </MDBTabsPane>
+        <MDBTabsPane show={basicActive === 'tab3'}>Tab 3 content</MDBTabsPane>
+      </MDBTabsContent>
+
+
+
+
+        
     </>
   )
 }
