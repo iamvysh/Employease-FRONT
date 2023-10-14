@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Navigation from '../../componets/Navigarion'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { MDBBtn } from 'mdb-react-ui-kit';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const SimilerEmplyoyee = () => {
 
+
+    const navigate=useNavigate()
     const {id}=useParams()
     const [users,setusers]=useState([])
 
@@ -40,11 +43,20 @@ const SendJobDetailstoEmployees=async()=>{
   try {
 
     const response=await axios.put("http://localhost:3000/agency/sendjobrequesttoemployees",{data,id})
-      
+       
 
+    if(response.status==200){
+            toast.success(response.data.message, {
+              position: toast.POSITION.CENTER,
+              autoClose:500,
+              onClose: () => {
+                navigate(`/jobrequest`);
+              }
+            })
+          }
 
   } catch (error) {
-    
+   console.log(error) 
   }
 }
 
@@ -52,6 +64,8 @@ const SendJobDetailstoEmployees=async()=>{
     <>
 
     <Navigation/>
+    <ToastContainer />
+
 
     <div style={{width:"100%",height:"auto",display:"flex"}}>
 
