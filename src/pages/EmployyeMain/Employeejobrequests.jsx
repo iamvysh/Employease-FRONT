@@ -103,6 +103,22 @@ const handleDelete=async(job_id)=>{
 
 }
 
+
+
+
+
+const handleCompleteJob=async(jobid)=>{
+  try {
+    const response=await axios.put(`http://localhost:3000/employee/updatejobstatus/${jobid}/${id}`)
+    if(response.status==200){
+      alert("completed sucess fully")
+      GetAllApprovedJob()
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 const [basicActive, setBasicActive] = useState('tab1');
 
 const handleBasicClick = (value) => {
@@ -378,6 +394,27 @@ const handleBasicClick = (value) => {
               <p className="text-truncate mb-4 mb-md-0">
              {item.jobdescription} 
               </p>
+            </MDBCol>
+            <MDBCol
+              md="6"
+              lg="3"
+              className="border-sm-start-none border-start d-flex flex-row justify-content-center align-items-center "
+            >
+              {/* <div className="d-flex flex-row justify-content-center align-items-center  mb-1"> */}
+                
+                
+
+                
+              {/* <div className="d-flex  mt-5"> */}
+                <MDBBtn  rounded  color="success" size="sm" className='mx-1'  onClick={()=>handleCompleteJob(item._id)} >
+                 Complete
+                </MDBBtn>
+
+               
+               
+              {/* </div> */}
+              {/* </div> */}
+              
             </MDBCol>
             
           </MDBRow>
