@@ -368,7 +368,7 @@ item.scheduledemployees.length >= item.numberofemployees ? 'linear-gradient(to b
 
             
           <div className="d-flex flex-column mt-5">
-            <MDBBtn   onClick={()=>navigate(`/jobrequest/${item._id}`)} color="primary" size="sm">
+            <MDBBtn   onClick={()=>navigate(`/approvedjob/${item._id}`)} color="primary" size="sm">
              View Details
             </MDBBtn>
            
@@ -488,7 +488,7 @@ item.scheduledemployees.length >= item.numberofemployees ? 'linear-gradient(to b
 
             
           <div className="d-flex flex-column mt-5">
-            <MDBBtn   onClick={()=>navigate(`/jobrequest/${item._id}`)} color="primary" size="sm">
+            <MDBBtn   onClick={()=>navigate(`/completedjob/${item._id}`)} color="primary" size="sm">
              View Details
             </MDBBtn>
            

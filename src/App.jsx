@@ -28,6 +28,9 @@ import Jobrequest from './pages/Jobrequest/Jobrequest';
 import IndividualJobrequstdetils from './pages/Jobrequest/IndividualJobrequstdetils';
 import SimilerEmplyoyee from './pages/Jobrequest/SimilerEmplyoyee';
 import Employeejobrequests from './pages/EmployyeMain/Employeejobrequests';
+import ApprovedTab from './pages/Jobrequest/ApprovedTab';
+import CompletedTab from './pages/Jobrequest/CompletedTab';
+
 
 
 function App() {
@@ -58,6 +61,8 @@ function App() {
     <Route path='/jobrequest/:id' element={<IndividualJobrequstdetils/>}/>
     <Route path='/simileremployees/:id' element={<SimilerEmplyoyee/>} />
     <Route path='/jobdetails/:id' element={<Employeejobrequests/>}/>
+    <Route path='/approvedjob/:id' element={<ApprovedTab/>}/>
+    <Route path='/completedjob/:id' element={<CompletedTab/>} />
     </Routes>
    
     </>

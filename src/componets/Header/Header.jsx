@@ -30,7 +30,7 @@ const Header = () => {
 
       <div style={{zIndex:"2"}}>
         <button className="header_buttton" onClick={()=>handleShow()} style={{zIndex:"1000000"}}>
-          Contact Us 
+          Jobs 
         </button>
       </div>
 
