@@ -25,12 +25,13 @@ import {
   } from "mdb-react-ui-kit";
 import Navigation from '../../componets/Navigarion';
 import Sidebar from '../../componets/sidebar/Sidebar';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const ApprovedTab = () => {
      
     const [user,Setuser]=useState([])
+    const navigate=useNavigate()
     const {id}=useParams()
     console.log(id);
 
@@ -342,7 +343,7 @@ const ApprovedTab = () => {
                       <MDBBtn
                         size="sm"
                         onClick={() =>
-                          navigate(`/simileremployees/${item._id}`)
+                          navigate(`/scheduledemployee/${item._id}`)
                         }
                       >
                         Click Here
