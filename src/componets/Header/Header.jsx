@@ -1,18 +1,18 @@
 import React from 'react'
 import "./header.css"
 import Logo from "../../image/logo.jpg"
+import { useNavigate } from 'react-router-dom'
 // import Button from 'react-bootstrap/Button';
 
 
 
 const Header = () => {
-  const  handleShow=()=>{
-    console.log("hy punde");
-  }
+  const navigate=useNavigate()
+  
   return (
     <>
 
-    <div id="Header_main_div">
+    <div id="Header_main_div" >
 
         <div  style={{height:"6rem"}}>
         {/* <h1 className="header_heading">EmployEase</h1> */} 
@@ -29,7 +29,7 @@ const Header = () => {
 
 
       <div style={{zIndex:"2"}}>
-        <button className="header_buttton" onClick={()=>handleShow()} style={{zIndex:"1000000"}}>
+        <button className="header_buttton" onClick={()=>navigate("/userjobdetails")} style={{zIndex:"1000000"}}>
           Jobs 
         </button>
       </div>

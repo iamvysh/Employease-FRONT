@@ -18,7 +18,7 @@
     z-index:0;
 }
 #content{
-    /* max-width: 72rem; Assuming 1 rem = 1ch (character width) */
+    width: 100%;
     height: auto;
     /* margin-left: auto;
     margin-right: auto; */
@@ -43,5 +43,22 @@
     font-family: 'Sue Ellen Francisco', cursive;
 }
 
+@media (max-width: 767px) {
+    #about {
+        height: auto;
+        padding: 1rem;
+    }
+}
 
+/* Styles for medium screens */
+@media (min-width: 768px) and (max-width: 1023px) {
+    #about {
+        height: auto;
+        padding: 2rem;
+    }
+
+    .parasection {
+        font-size: 24px;
+    }
+}
   

@@ -9,7 +9,7 @@ const Userlanding = () => {
   // const navigate=useNavigate()
   return (
     <>
-    <div id='image_division'> 
+      <div id='image_division'> 
 
     <div id="content" >
 

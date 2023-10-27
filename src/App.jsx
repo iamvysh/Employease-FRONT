@@ -31,6 +31,8 @@ import Employeejobrequests from './pages/EmployyeMain/Employeejobrequests';
 import ApprovedTab from './pages/Jobrequest/ApprovedTab';
 import CompletedTab from './pages/Jobrequest/CompletedTab';
 import ScheduledEmployees from './pages/Jobrequest/ScheduledEmployees';
+import Workedemployees from './pages/Jobrequest/Workedemployees';
+import Jobdetails from './pages/User/Jobdetails';
 
 
 
@@ -66,6 +68,8 @@ function App() {
     <Route path='/approvedjob/:id' element={<ApprovedTab/>}/>
     <Route path='/completedjob/:id' element={<CompletedTab/>} />
     <Route path='/scheduledemployee/:id' element={<ScheduledEmployees/>}/>
+    <Route path='/workedemployees/:id' element={<Workedemployees/>}/>
+    <Route path='/userjobdetails' element={<Jobdetails/>}/>
     </Routes>
    
     </>
